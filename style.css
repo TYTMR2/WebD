@@ -10,7 +10,7 @@ body{
     background: linear-gradient(rgb(207, 235, 254), rgb(200, 251, 250), rgb(136, 183, 234));
 }
 
-/*********** Custom scrollbar ***********/
+/*********** Scrollbar ***********/
 ::-webkit-scrollbar{
     width: 10px;
 }
@@ -238,6 +238,7 @@ nav .logo{
 .third-section-button:hover{
     background-color: #e6f8ff;
 }
+
 /********** Feedback page **********/
 .feedback-form{
     width: 100%;
