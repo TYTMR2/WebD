@@ -1,5 +1,5 @@
 body{
-    background-color: #A4DDED;
+    background: linear-gradient(rgb(207, 235, 254), rgb(200, 251, 250), rgb(136, 183, 234));
     color: #ffffff;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 
@@ -17,6 +17,7 @@ body{
 p{
     font-size: 22px;
     text-align:center;
+    color: rgb(228, 97, 21);
 }
 
 img{
@@ -33,10 +34,10 @@ img{
 
 @keyframes spin{
     from{
-        transform: rotate(0deg);
+        transform: rotate(360deg);
     }
     to{
-        transform: rotate(360deg);
+        transform: rotate(0deg);
     }
 }
 
@@ -53,6 +54,7 @@ img{
 h1{
     text-align: center;
     font-size: 70px;
+    color: rgb(228, 97, 21);
 }
 
 strong{
