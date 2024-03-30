@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery</title>
+<style>
+body {
+    background-color: rgb(127, 209, 185); }
+
+h1 {
+    text-align: center;
+    margin-top: 150px; 
+    font-family: 'Times New Roman';
+    color: rgb(210, 88, 18); 
+    font-size: 60px; }
+
+.gallery {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: center;
+    margin-top: 75px; }
+
+
+.img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    cursor: pointer; 
+    transition: transform 0.3s ease; }
+
+
+.img:hover {
+    transform: scale(1.2); }
+
+
+.gallery:hover .regular-text {
+    transform: scale(1.5);}
+
+
+.regular-text {
+    position: absolute;
+    top: 0;
+    left: calc(115% + 50px);
+    width: max-content;
+    display: none;
+    align-items: center;}
+
+.image-text {
+    color: white;
+    margin-right: 10px; }
+
+.image-wrapper:hover .regular-text {
+    display: flex;}
+
+
+.img:hover + .regular-text {
+    display: flex;
+}
+
+.link {
+    position: fixed;
+    bottom: 15px;
+    left: 3%;
+    z-index: 10;
+    text-decoration: none;
+    color: rgb(100, 141, 229);
+    font-weight: bold;}
+
+
+
+.select {
+    position: fixed;
+    top: 15px; 
+    right: 10%;
+    z-index: 10; }
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 60px; 
+    height: 60px; 
+    line-height: 60px; 
+    text-align: center; 
+    font-size: 50px;
+    font-weight: bold;
+    background-color: white;
+    z-index: 1;}
+
+.arrow.left {
+    left: 0;}
+
+.arrow.right {
+    right: 0;}
+
+.select {
+    margin-top: 20px;}
+
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10%;
+    border-bottom: 1px solid black;
+    z-index: 10;
+    font-size: 16px;
+    background-color: white;}
+nav ul li{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    display: inline-block;
+    margin: 10px 20px;
+    font-weight: 500;}
+li:hover{
+    color: rgb(210, 88, 18);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;}
+
+.a-links{
+    text-decoration: none;
+    color: rgb(210, 88, 18);;}
+.a-links:hover{
+    color: rgb(210, 88, 18);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;}
+
+
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="active-page"><a href="tbd" class="a-links">Home</a></li>
+            <li><a href="tbd" class="a-links">Shop</a></li>
+            <li><a href="tbd" class="a-links">Gallery</a></li>
+            <li><a href ="tbd" class="a-links">Sitemap</a></li>
+            <li><a href="tbd" class="a-links">Team</a></li>
+            <li><a href="tbd" class="a-links">Profile</a></li>
+        </ul>
+        <a href="tbd" class="a-button" id="nav-button"><b>Feedback</b></a>
+    </nav>
+
+    <h1><i>The Gallery</i></h1>
+
+
+    <div class="gallery">
+        <div class="image-wrapper">
+            <img class="img" src="image1.jpg" alt="Image 1">
+            <div class="regular-text">
+                <p class="image-text">Get started</p>
+            </div>
+        </div>
+        <div class="arrow left">&lt;</div>
+        <div class="arrow right">&gt;</div>
+    </div>
+
+    <a href="tbd" class="link">Page Editor</a>
+    
+    <!-- Set up font change -->
+    <select class="select" onchange="changeColorScheme(this.value)">
+        <option value="Light">Default</option>
+        <option value="Dark">Dark Mode</option>
+        <option value="Pastel">Pastel</option>
+        <option value="Moonlight">Moonlight</option>
+    </select>
+    
+<script>
+    const images = [
+    { url: "https://i.imgur.com/pkHofPH.jpeg", link: "https://exxpedition.com/11-ocean-plastic-documentaries-you-need-to-watch/" },
+    { url: "https://i.imgur.com/IpjnKYH.png", link: "tbd" },
+    { url: "https://i.imgur.com/AROXlrx.png", link: "tbd" },
+    { url: "https://i.imgur.com/6AMNTAX.png", link: "https://impactful.ninja/best-charities-to-save-our-oceans/"}
+];
+
+let currentImageIndex = 0;
+const galleryImage = document.querySelector('.img');
+const leftArrow = document.querySelector('.arrow.left');
+const rightArrow = document.querySelector('.arrow.right');
+
+function showImage(index) {
+    galleryImage.src = images[index].url;
+    const textOverlay = document.querySelector('.regular-text .image-text');
+    
+    // Set image text descriptions
+    if (index === 0) {
+        textOverlay.innerHTML = "I have discovered informative<br>documentaries on this blog that<br>would pique the interest of<br>people concerned about our cause.<br><br>Click here to access!";
+    } else if (index === 1) {
+        textOverlay.innerHTML = "Real life stories of<br> people engaged in<br> the protection of the ocean.";
+    } else if (index === 2) {
+        textOverlay.innerHTML = "Visit our shop for <br>environment-friendly products!";
+    } else if (index===3){
+        textOverlay.innerHTML = "A blog providing a comprehensive <br> list of impactful charities,<br> detailing their areas of focus<br> and notable achievements.";
+    }
+}
+    
+//Set up the mechanics of arrows 
+leftArrow.addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+        showImage(currentImageIndex);
+    });
+
+    rightArrow.addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+        showImage(currentImageIndex);
+    });
+
+    showImage(currentImageIndex);
+
+    galleryImage.addEventListener('click', function() {
+        window.location.href = images[currentImageIndex].link;
+    });
+
+    // Function of the font change
+    function changeColorScheme(theme) {
+        const body = document.querySelector('body');
+        const h1 = document.querySelector('h1');
+        const arrows = document.querySelectorAll('.arrow');
+        const nav = document.querySelector('nav'); // Selecting the navigation bar
+        const navLinks = document.querySelectorAll('nav ul li a'); // Selecting the navigation links
+
+        if (theme === 'Dark') {
+        body.style.backgroundColor = 'rgb(69, 69, 69)';
+        nav.style.backgroundColor = 'rgb(220, 224, 217)'; 
+        h1.style.color = 'rgb(184, 12, 9)';
+        h1.style.fontFamily = 'Courier new';
+        navLinks.forEach(link => {
+            link.style.color = 'rgb(184, 12, 9)';
+            link.style.fontFamily = 'Courier new';
+        });
+        arrows.forEach(arrow => {
+            arrow.style.color = 'white';
+            arrow.style.backgroundColor = 'rgb(116, 109, 117)';
+        });
+        } else if (theme === 'Pastel') {
+            body.style.backgroundColor = 'rgb(175,233,255)';
+            nav.style.backgroundColor = 'rgb(203,255,230)'; 
+            h1.style.color = 'rgb(255,207,234)';
+            h1.style.fontFamily = 'Comic Sans MS';
+            navLinks.forEach(link => {
+                link.style.color = 'rgb(255,207,234)';
+                link.style.fontFamily = 'Comic Sans MS';
+            });
+            arrows.forEach(arrow => {
+                arrow.style.color = 'rgb(255,207,234)';
+                arrow.style.backgroundColor = 'rgb(254,255,190)';
+            });
+        } else if (theme === 'Moonlight') {
+            body.style.backgroundColor = 'rgb(103,56,136)';
+            nav.style.backgroundColor = 'rgb(199,157,215)';
+            h1.style.color = 'rgb(239,79,145)';
+            h1.style.fontFamily = 'Helvetica';
+            navLinks.forEach(link => {
+                link.style.color = 'rgb(239,79,145)';
+                link.style.fontFamily = 'Helvetica';
+            });
+            arrows.forEach(arrow => {
+                arrow.style.color = 'white';
+                arrow.style.backgroundColor = 'rgb(54,59,116)';
+            });
+        } else {
+            body.style.backgroundColor = 'rgb(127, 209, 185)';
+            nav.style.backgroundColor = 'white';
+            h1.style.color = 'rgb(210, 88, 18)';
+            h1.style.fontFamily = 'Times New Roman'
+            navLinks.forEach(link => {
+                link.style.color = 'rgb(210, 88, 18)';
+                link.style.fontFamily = 'Times New Roman';
+            });
+            arrows.forEach(arrow => {
+                arrow.style.color = 'black';
+                arrow.style.backgroundColor = 'white';
+            });
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+    
