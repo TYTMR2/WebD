@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <style>
+
+        h1, h4{
+            font-family:'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        body {
+            background: rgb(207, 235, 254);
+            padding-top: 100px;
+        }
+        
+        .student1 {
+            margin-left: 30px;
+        }
+        
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 10%;
+            border-bottom: 1px solid black;
+            z-index: 10;
+            font-size: 16px;
+            background-color: white;
+        }
+    
+        nav ul li{
+            text-decoration: none;
+            list-style: none;
+            color: black;
+            display: inline-block;
+            margin: 10px 20px;
+            font-weight: 500;
+        }
+        li:hover{
+            color: rgb(210, 88, 18);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #nav-button{
+            background-color: rgb(228, 97, 21);
+            color: white;
+            font-size: 14px;
+            padding: 8px;
+            border: 0;
+            border-radius: 40px;
+        }
+        #nav-button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        nav .logo{
+            width: 50px;
+        }
+        .a-button{
+            text-decoration: none;
+            color: white;
+        }
+        .a-button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        .a-links{
+            text-decoration: none;
+            color: black;
+        }
+        .a-links:hover{
+            color: rgb(210, 88, 18);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .active-page{
+            text-decoration: underline;
+            color: rgb(210, 88, 18);
+        }
+
+        .team_pictures {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 30px;
+            padding-bottom: 300px;
+        }
+
+        .team_pictures {
+            opacity: 1;    
+        }
+
+        /* image will fade when user hovers over*/
+        .image:hover {
+            opacity: 0.3;
+        }
+
+        /* the student details will be displayed */
+        .image:hover + .student_details {
+            opacity: 1;
+        }
+
+        /* styling used for the student details*/
+        .student_details{
+            bottom: 120px;
+            opacity: 0; /*The transparency is 0 so the information cannot be seen*/
+            position: absolute;
+            padding: 5px 10px;
+            font-size: 28px;
+            border: 3px solid rgb(210, 88, 18);
+            background-color: white;
+            text-align: center;
+        }
+
+        .PageEditor {
+            margin-bottom: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="logo" class="logo">
+        <ul>
+            <li class="active-page"><a href="home.html" class="a-links">Home</a></li>
+            <li><a href="shop.html" class="a-links">Shop</a></li>
+            <li><a href="gallery.html" class="a-links">Gallery</a></li>
+            <li><a href="Team.html" class="a-links">Team</a></li>
+        </ul>
+        <a href="feedback.html" class="a-button" id="nav-button"><b>Feedback</b></a>
+    </nav>
+
+    <h1>Meet the team</h1>
+
+    <h4>Hover over our pictures to find out more about us</h4>
+
+    <div class = "team_pictures"> <!-- https://www.w3schools.com/howto/howto_css_image_overlay.asp -->
+        <!--Student 1-->
+        <img class = "image" src = "student1.jpg" alt="Student 1" height = "200" width="300">
+        <!--Information of student 1-->
+        <div class = "student_details"><p>Student 1<br>Sumaya Yasin<br>Splash Screen & Shop </p></div>
+        
+        <!--Student 2-->
+        <img class = "image" src = "student2.jpg" alt="Student 2" height = "200" width="300">
+        <!--Information of student 2-->
+        <div class = "student_details"><p>Student 2<br>Iqra Shah<br>Feedback & Homepage</p></div>
+
+        <!--Student 3-->
+        <img class = "image" src = "student3.jpg" alt="Student 3" height = "200" width="300">
+        <!--Information of student 3-->
+        <div class = "student_details"><p>Student 3<br>An An Yu<br>User profile & Team</p></div>
+        
+        <!--Student 4-->
+        <img class = "image" src = "student4.jpg" alt="Student 4" height = "200" width="300">
+        <!--Information of student 4-->
+        <div class = "student_details"><p>Student 4<br>Zeynep Soylemez<br>Gallery & Sitemap </p></div>
+    </div>   
+
+    <div class = "PageEditor">
+        <a href="w1965589_PageEditor.html" target="_blank">Page Editor</a>
+    </div>
+</body>
+</html>
