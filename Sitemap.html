@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitemap</title>
+<style>
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10%;
+    border-bottom: 1px solid black;
+    z-index: 10;
+    font-size: 16px;
+    background-color: white;}
+nav ul li{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    display: inline-block;
+    margin: 10px 20px;
+    font-weight: 500;}
+li:hover{
+    color: rgb(210, 88, 18);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;}
+
+.a-links{
+    text-decoration: none;
+    color: rgb(79, 18, 113);}
+.a-links:hover{
+    color: rgb(79, 18, 113);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;}
+
+body{
+    background-color: rgb(228, 217, 255);}
+
+h1{ margin-top: 130px;
+text-align: center;
+color: rgb(79, 18, 113);
+font-size: 40px;}
+
+
+.hexagon {
+        fill:rgb(202, 255, 208);
+        stroke:rgb(92, 128, 188);
+        stroke-width:5;
+        fill-rule:evenodd;
+        transition: fill 0.3s ease;}
+
+.hexagon:hover{ 
+    fill: rgb(186, 217, 181);
+}
+
+.line {
+    stroke:rgb(92, 128, 188);
+    stroke-width:5;}
+
+.text {
+        font-size: 30px;
+        fill: black;
+        text-anchor: middle;}
+
+.link {
+    position: fixed;
+    bottom: 15px;
+    left: 3%;
+    z-index: 10;
+    text-decoration: none;
+    color: rgb(100, 141, 229);
+    font-weight: bold;}
+
+
+</style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li class="active-page"><a href="tbd" class="a-links">Home</a></li>
+            <li><a href="tbd" class="a-links">Shop</a></li>
+            <li><a href="tbd" class="a-links">Gallery</a></li>
+            <li><a href="tbd" class="a-links">Sitemap</a></li>
+            <li><a href="tbd" class="a-links">Team</a></li>
+            <li><a href="tbd" class="a-links">Profile</a></li>
+        </ul>
+        <a href="tbd" class="a-button" id="nav-button"><b>Feedback</b></a>
+    </nav>
+    <h1>Sitemap</h1>
+    <svg width="1500" height="1000" viewBox="0 0 1500 1000" style="margin-left: 100px;">
+        <a href="Splashscreen.html">
+        <polygon points="100,200 340,200 420,240 340,280 100,280 20,240" class="hexagon" /></a>
+        <text x="220" y="250" class="text">Splashscreen</text>
+        <a href="Homepage.html">
+        <polygon points="640,200 880,200 960,240 880,280 640,280 560,240" class="hexagon" /></a>
+        <text x="760" y="250" class="text">Homepage</text>
+        <!-- First connection line -->
+        <line x1="420" y1="240" x2="560" y2="240" class="line" />
+        <!-- Second line(long) -->
+        <line x1="750" y1="280" x2="750" y2="700" class="line" />
+        <!-- Third line -->
+        <line x1="750" y1="350" x2="900" y2="350" class="line" />
+        <a href="Shop.html">
+        <polygon points="850,320 1100,320 1100,380 850,380" class="hexagon" /></a>
+        <text x="975" y="360" class="text">Shop</text>
+        <!-- Fourth line -->
+        <line x1="750" y1="450" x2="650" y2="450" class="line" />
+        <a href="Sitemap.html">
+        <polygon points="380,420 660,420 660,480 380,480" class="hexagon" /></a>
+        <text x="520" y="460" class="text">Sitemap</text>
+        <!-- Fifth line -->
+        <line x1="750" y1="500" x2="900" y2="500" class="line" />
+        <a href="Gallery.html">
+        <polygon points="850,470 1100,470 1100,530 850,530" class="hexagon" /></a>
+        <text x="975" y="510" class="text">Gallery</text>
+        <!-- Second connection line -->
+        <line x1="975" y1="380" x2="975" y2="470" class="line" />
+        <!-- Sixth line -->
+        <line x1="750" y1="630" x2="650" y2="630" class="line" />
+        <a href="Team.html">
+        <polygon points="380,600 660,600 660,660 380,660" class="hexagon" /></a>
+        <text x="500" y="640" class="text">Team</text>
+        <!-- Seventh line -->
+        <line x1="747" y1="700" x2="900" y2="700" class="line" />
+        <a href="Profile.html">
+        <polygon points="850,670 1100,670 1100,730 850,730" class="hexagon" /></a>
+        <text x="975" y="710" class="text">Profile</text>
+
+    
+        </svg>
+
+
+        <a href="Page_Editor.html" class="link">Page Editor</a>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+        
+    
+</body>
+</html>
+
