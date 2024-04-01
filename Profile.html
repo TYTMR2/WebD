@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        #PersonalDetailsPrompt {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #QuestionsPrompt {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #ContactDetailsPrompt {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+
+        #output {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            text-align: left;
+
+        }
+        body {
+            padding-top: 100px;
+            background: rgb(207, 235, 254);
+        }
+
+        h2, h3 {
+            font-family:'Courier New', Courier, monospace;
+            text-align: center;
+            color: rgb(210, 88, 18);
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        #startbutton{
+            margin: auto;
+            display: block;
+            margin-bottom: 50px;
+            height: 50px;
+            width: 150px;
+            background-color: rgb(210, 88, 18);
+            color: white;
+            border-radius: 12px;
+        }
+
+        #PD_questions div,
+        #ED_questions div, 
+        #CD_questions div {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        #nextbutton, #finishbutton, #skipbutton{
+            margin-top: 20px;
+            height: 40px;
+            width: 70px;
+            background-color: rgb(210, 88, 18);
+            color: white;
+            border-radius: 12px;
+        }
+
+        
+
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 10%;
+            border-bottom: 1px solid black;
+            z-index: 10;
+            font-size: 16px;
+            background-color: white;
+        }
+    
+        nav ul li{
+            text-decoration: none;
+            list-style: none;
+            color: black;
+            display: inline-block;
+            margin: 10px 20px;
+            font-weight: 500;
+        }
+        li:hover{
+            color: rgb(210, 88, 18);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #nav-button{
+            background-color: rgb(228, 97, 21);
+            color: white;
+            font-size: 14px;
+            padding: 8px;
+            border: 0;
+            border-radius: 40px;
+        }
+        #nav-button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        nav .logo{
+            width: 50px;
+        }
+        .a-button{
+            text-decoration: none;
+            color: white;
+        }
+        .a-button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        .a-links{
+            text-decoration: none;
+            color: black;
+        }
+        .a-links:hover{
+            color: rgb(210, 88, 18);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .active-page{
+            text-decoration: underline;
+            color: rgb(210, 88, 18);
+        }
+
+        .PageEditor {
+            bottom: 0;
+            margin-bottom: 200px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <nav>
+        <img src="logo.png" alt="logo" class="logo">
+        <nav>
+            <img src="logo.png" alt="logo" class="logo">
+            <ul>
+                 <li class="active-page"><a href="home.html" class="a-links">Home</a></li>
+                <li><a href="shop.html" class="a-links">Shop</a></li>
+                <li><a href="gallery.html" class="a-links">Gallery</a></li>
+                <li><a href="sitemap.html" class="a-links">Sitemap</a></li>
+                <li><a href="team.html" class="a-links">Team</a></li>
+                <li><a href="profile.html" class="a-links">Profile</a></li>
+            </ul>
+            <a href="feedback.html" class="a-button" id="nav-button"><b>Feedback</b></a>
+        </nav>
+        <a href="feedback.html" class="a-button" id="nav-button"><b>Feedback</b></a>
+    </nav>
+
+
+    <h2>Build your own profile</h2>
+
+    <h3>Press start to begin building your profile</h3>
+
+    <button id = "startbutton" onclick="Profile_Prompt()">Start</button>
+
+    <!--First set of prompt: Personal details-->
+    <div id = "PersonalDetailsPrompt">
+        <!--Displays the current question numbers-->
+        <h6>Question <span id="current_question">4</span>/12</h6>
+        <h4>Personal details:</h4>
+        <!--Container for the personal details question-->
+        <div id = "PD_questions">
+            <label for="name">Name:</label>
+            <input type = "text" id = "name">
+            <br>
+            <label for="age">Age:</label>
+            <input type = "text" id = "age">
+            <br>
+            <label for="gender">Gender:</label> 
+            <input type = "text" id = "gender">
+            <br>
+            <label for="country">Country:</label>
+            <input type = "text" id = "country">
+        </div>
+        <button id = "nextbutton" onclick = "Questions_Prompt()">Next</button>
+        <button id = "skipbutton" onclick = "Questions_Prompt()">Skip</button>
+    </div>
+
+
+    <!--Second set of prompt: Questions-->
+    <div id = "QuestionsPrompt">
+        <h6>Question <span id="current_question">8</span>/12</h6>
+        <h4>Short Questions:</h4>
+        <div id = "QS_questions">
+            <label for="sea_animal">What is your favourite sea animal: </label>
+            <input type = "text" id = "sea_animal">
+            <br>
+            <label for="danger">Do you think sea animals are in danger: </label>
+            <input type = "text" id = "danger">
+            <br>
+            <label for="change">Do you want to make a change: </label>
+            <input type = "text" id = "change">
+            <br>
+            <label for="team">Do you want to join our team: </label>
+            <input type = "text" id = "team">
+        </div>
+        <button id = "nextbutton" onclick = "Contact_Prompt()">Next</button>
+        <button id = "skipbutton" onclick = "Contact_Prompt()">Skip</button>
+    </div>
+
+    <div id = "ContactDetailsPrompt">
+        <h6>Question <span id="current_question">12</span>/12</h6>
+        <h4>Contact details:</h4>
+        <div id = "CD_questions">
+            <label for="personal_email">Personal email: </label>
+            <input type = "text" id = "personal_email">
+            <br>
+            <label for="university_email">University email: </label>
+            <input type = "text" id = "university_email">
+            <br>
+            <label for="phone_number">Phone number: </label>
+            <input type = "text" id = "phone_number">
+            <br>
+            <label for ="socials">Socials: </label>
+            <input type = "text" id = "socials">
+
+        </div>
+        <button id = "finishbutton" onclick = "Finish_Prompt()">Finish</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        /*Arrays that are used to store user answers for each prompt*/
+        var PD_UserAnswer = [] 
+        var QS_UserAnswer = [] 
+        var CD_UserAnswer = [] 
+
+        var current_question = 0;
+
+    function Profile_Prompt() {
+        document.getElementById("PersonalDetailsPrompt").style.display = "block";
+    }
+
+    function Questions_Prompt() {
+        /*The input by the user is fetched by using the ID corresponding to the input box */
+        var name = document.getElementById("name").value.trim(); 
+        var age = document.getElementById("age").value.trim();
+        var gender = document.getElementById("gender").value.trim();
+        var country = document.getElementById("country").value.trim();
+
+        /* This stores the user's answers into the array for the personal details */
+        PD_UserAnswer = [name, age, gender, country];
+
+        /* Hide the first prompt*/
+        document.getElementById("PersonalDetailsPrompt").style.display = "none";
+        /*Display the second prompt*/
+        document.getElementById("QuestionsPrompt").style.display = "block";
+        /* Call Prompt_answers function to display the prompts again*/
+        Prompt_answers();
+    }
+
+    function Contact_Prompt(){
+        /*The input by the user is fetched by using the ID corresponding to the input box */
+        var sea_animal = document.getElementById("sea_animal").value.trim();
+        var danger = document.getElementById("danger").value.trim();
+        var change = document.getElementById("change").value.trim();
+        var team = document.getElementById("team").value.trim();
+        
+        /* This stores the user's answers from short questions into the questions array */
+        QS_UserAnswer = [sea_animal, danger, change, team];
+
+        document.getElementById("QuestionsPrompt").style.display = "none";
+        document.getElementById("ContactDetailsPrompt").style.display = "block";
+        Prompt_answers();
+    }
+
+    function Finish_Prompt() {
+        document.getElementById("ContactDetailsPrompt").style.display = "none";
+
+        var personal_email = document.getElementById("personal_email").value.trim();
+        var university_email = document.getElementById("university_email").value.trim();
+        var phone_number = document.getElementById("phone_number").value.trim();
+        var socials = document.getElementById("socials").value.trim();
+
+
+        /* This stores the user's answers from contact details into the questions array */
+        CD_UserAnswer = [personal_email, university_email, phone_number, socials];
+        Prompt_answers();
+    }
+
+    function Prompt_answers() { /*https://www.w3schools.com/jsref/jsref_foreach.asp */
+        var outputDiv = document.getElementById("output");
+
+        outputDiv.innerHTML = "<h3>Personal details: </h3>";
+        outputDiv.style.display = "block";
+
+        /* For each loop is used to display the items inside the personal details array*/
+        PD_UserAnswer.forEach(function(user_answer, index) {
+            var question = ["Name", "Age", "Gender", "Country"][index]; 
+            outputDiv.innerHTML += "<p>" + question + ": " + user_answer + "</p>"; /* display the question and the user's answer */
+        });
+
+        outputDiv.innerHTML += "<h3>Short Questions:</h3>";
+
+        QS_UserAnswer.forEach(function(user_answer, index) {
+            var question = ["Favourite Sea animal", "Do you think sea animals are in danger", "Do you want to make a change", "Do you want to join our team"][index];
+            outputDiv.innerHTML += "<p>" + question + ": " + user_answer + "</p>";
+        });
+
+        outputDiv.innerHTML += "<h3>Contact details: </h3>";
+
+        CD_UserAnswer.forEach(function(user_answer, index) {
+            var question = ["Personal email", "University email", "Phone number", "Socials"][index];
+            outputDiv.innerHTML += "<p>" + question + ": " + user_answer + "</p>";
+        });
+    }
+    </script>
+
+    <!--Footer section - includes link to Page Editor-->
+    <div class = "PageEditor">
+    <a href="AnAn_PageEditor.html" target="_blank">Page Editor</a>
+    </div>
+         
+</body>
+</html>
