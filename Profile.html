@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <style>
-        #PersonalDetailsPrompt, #QuestionsPrompt, #ContactDetailsPrompt {
+        #PersonalDetailsPrompt {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #QuestionsPrompt {
+            display: none; /* Initially hide the prompt */
+            border: 1px solid #ccc;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #ContactDetailsPrompt {
             display: none; /* Initially hide the prompt */
             border: 1px solid #ccc;
             background: white;
@@ -66,6 +84,8 @@
             color: white;
             border-radius: 12px;
         }
+
+        
 
         nav{
             position: fixed;
@@ -178,10 +198,17 @@
         <h4>Personal details:</h4>
         <!--Container for the personal details question-->
         <div id = "PD_questions">
-            <div>Name: <input type = "text" id = "name"></div>
-            <div>Age: <input type = "text" id = "age"></div>
-            <div>Gender: <input type = "text" id = "gender"></div>
-            <div>Country: <input type = "text" id = "country"></div>
+            <label for="name">Name:</label>
+            <input type = "text" id = "name">
+            <br>
+            <label for="age">Age:</label>
+            <input type = "text" id = "age">
+            <br>
+            <label for="gender">Gender:</label> 
+            <input type = "text" id = "gender">
+            <br>
+            <label for="country">Country:</label>
+            <input type = "text" id = "country">
         </div>
         <button id = "nextbutton" onclick = "Questions_Prompt()">Next</button>
         <button id = "skipbutton" onclick = "Questions_Prompt()">Skip</button>
@@ -193,10 +220,17 @@
         <h6>Question <span id="current_question">8</span>/12</h6>
         <h4>Short Questions:</h4>
         <div id = "QS_questions">
-            <div>What is your favourite sea animal: <input type = "text" id = "sea_animal"></div>
-            <div>Do you think sea animals are in danger: <input type = "text" id = "danger"></div>
-            <div>Do you want to make a change: <input type = "text" id = "change"></div>
-            <div>Do you want to join our team?: <input type = "text" id = "team"></div>
+            <label for="sea_animal">What is your favourite sea animal: </label>
+            <input type = "text" id = "sea_animal">
+            <br>
+            <label for="danger">Do you think sea animals are in danger: </label>
+            <input type = "text" id = "danger">
+            <br>
+            <label for="change">Do you want to make a change: </label>
+            <input type = "text" id = "change">
+            <br>
+            <label for="team">Do you want to join our team: </label>
+            <input type = "text" id = "team">
         </div>
         <button id = "nextbutton" onclick = "Contact_Prompt()">Next</button>
         <button id = "skipbutton" onclick = "Contact_Prompt()">Skip</button>
@@ -206,29 +240,36 @@
         <h6>Question <span id="current_question">12</span>/12</h6>
         <h4>Contact details:</h4>
         <div id = "CD_questions">
-            <div>Personal email: <input type = "text" id = "personal_email"></div>
-            <div>University email: <input type = "text" id = "university_email"></div>
-            <div>Phone number: <input type = "text" id = "phone_number"></div>
-            <div>Socials: <input type = "text" id = "socials"></div>
+            <label for="personal_email">Personal email: </label>
+            <input type = "text" id = "personal_email">
+            <br>
+            <label for="university_email">University email: </label>
+            <input type = "text" id = "university_email">
+            <br>
+            <label for="phone_number">Phone number: </label>
+            <input type = "text" id = "phone_number">
+            <br>
+            <label for ="socials">Socials: </label>
+            <input type = "text" id = "socials">
+
         </div>
         <button id = "finishbutton" onclick = "Finish_Prompt()">Finish</button>
-
     </div>
 
     <div id="output"></div>
 
     <script>
         /*Arrays that are used to store user answers for each prompt*/
-        var PD_UserAnswer = [] /* Contains user inputs for personal details */
-        var QS_UserAnswer = [] /* Contains user inputs for the questions */
-        var CD_UserAnswer = [] /* Contains user inputs for contact details */
+        var PD_UserAnswer = [] 
+        var QS_UserAnswer = [] 
+        var CD_UserAnswer = [] 
 
         var current_question = 0;
 
-        /* */
     function Profile_Prompt() {
         document.getElementById("PersonalDetailsPrompt").style.display = "block";
     }
+
     function Questions_Prompt() {
         /*The input by the user is fetched by using the ID corresponding to the input box */
         var name = document.getElementById("name").value.trim(); 
