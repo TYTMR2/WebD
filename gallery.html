@@ -135,6 +135,32 @@ li:hover{
     cursor: pointer;
     text-decoration: underline;}
 
+.preview-images {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;}
+
+.preview-image {
+        margin: 0 5px;
+        cursor: pointer;}
+
+.preview-image img {
+        width: 100px;
+        height: auto;
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease;}
+
+.preview-image img:hover {
+        border-color: black;}
+
+.range-slider {
+    position: fixed;
+    top: 35px;
+    right: 20%;
+    z-index: 10;
+    width: 100px;}
+
+
 
 </style>
 </head>
@@ -142,13 +168,13 @@ li:hover{
     <nav>
         <ul>
             <li class="active-page"><a href="tbd" class="a-links">Home</a></li>
-            <li><a href="tbd" class="a-links">Shop</a></li>
-            <li><a href="tbd" class="a-links">Gallery</a></li>
-            <li><a href ="tbd" class="a-links">Sitemap</a></li>
-            <li><a href="tbd" class="a-links">Team</a></li>
-            <li><a href="tbd" class="a-links">Profile</a></li>
+            <li><a href="shop.html" class="a-links">Shop</a></li>
+            <li><a href="gallery.html" class="a-links">Gallery</a></li>
+            <li><a href ="Sitemap.html" class="a-links">Sitemap</a></li>
+            <li><a href="team.html" class="a-links">Team</a></li>
+            <li><a href="profile.html" class="a-links">Profile</a></li>
         </ul>
-        <a href="tbd" class="a-button" id="nav-button"><b>Feedback</b></a>
+        <a href="feedback.html" class="a-button" id="nav-button"><b>Feedback</b></a>
     </nav>
 
     <h1><i>The Gallery</i></h1>
@@ -165,22 +191,63 @@ li:hover{
         <div class="arrow right">&gt;</div>
     </div>
 
-    <a href="tbd" class="link">Page Editor</a>
+    <a href="Page_Editor.html" class="link">Page Editor</a>
+
+    <div class="range-slider">
+        <input type="range" min="10" max="30" value="16" step="1" onchange="changeFontSize(this.value)">
+    </div>
+
     
-    <!-- Set up font change -->
+    <!-- Dropdown list for the scheme change -->
     <select class="select" onchange="changeColorScheme(this.value)">
         <option value="Light">Default</option>
         <option value="Dark">Dark Mode</option>
         <option value="Pastel">Pastel</option>
         <option value="Moonlight">Moonlight</option>
     </select>
+
+    <div class="preview-images">
+        <div class="preview-image" onclick="showImage(0)">
+            <img src="https://i.imgur.com/pkHofPH.jpeg" alt="Img 1">
+        </div>
+        <div class="preview-image" onclick="showImage(1)">
+            <img src="https://i.imgur.com/IpjnKYH.png" alt="Img 2">
+        </div>
+        <div class="preview-image" onclick="showImage(2)">
+            <img src="https://i.imgur.com/AROXlrx.png" alt="Img 3">
+        </div>
+        <div class="preview-image" onclick="showImage(3)">
+            <img src="https://i.imgur.com/6AMNTAX.png" alt="Img 4">
+        </div>
+        <div class="preview-image" onclick="showImage(4)">
+            <img src="https://i.imgur.com/qnkpZuj.png" alt="Img 5">
+        </div>
+        <div class="preview-image" onclick="showImage(5)">
+            <img src="https://i.imgur.com/78UTquv.jpg" alt="Img 6">
+         </div>
+        <div class="preview-image" onclick="showImage(6)">
+            <img src="https://i.imgur.com/hsEC7eu.jpg" alt="Img 7">
+        </div>
+        <div class="preview-image" onclick="showImage(7)">
+            <img src="https://i.imgur.com/bL4pt1T.jpg" alt="Img 8">
+        </div>
+        <div class="preview-image" onclick="showImage(8)">
+            <img src="https://i.imgur.com/oltimCd.jpeg" alt="Img 9"> 
+        </div>
+    
     
 <script>
     const images = [
     { url: "https://i.imgur.com/pkHofPH.jpeg", link: "https://exxpedition.com/11-ocean-plastic-documentaries-you-need-to-watch/" },
-    { url: "https://i.imgur.com/IpjnKYH.png", link: "tbd" },
-    { url: "https://i.imgur.com/AROXlrx.png", link: "tbd" },
-    { url: "https://i.imgur.com/6AMNTAX.png", link: "https://impactful.ninja/best-charities-to-save-our-oceans/"}
+    { url: "https://i.imgur.com/IpjnKYH.png", link: "https://www.unep.org/news-and-stories/story/saving-our-seas-5-ocean-heroes-battling-turn-toxic-tide" },
+    { url: "https://i.imgur.com/AROXlrx.png", link: "shop.html" },
+    { url: "https://i.imgur.com/6AMNTAX.png", link: "https://impactful.ninja/best-charities-to-save-our-oceans/"},
+    { url: "https://i.imgur.com/qnkpZuj.png"},
+    { url: "https://i.imgur.com/78UTquv.jpg"},
+    { url: "https://i.imgur.com/hsEC7eu.jpg"},
+    { url: "https://i.imgur.com/bL4pt1T.jpg"},
+    { url: "https://i.imgur.com/oltimCd.jpeg"}
+
 ];
 
 let currentImageIndex = 0;
@@ -202,6 +269,22 @@ function showImage(index) {
     } else if (index===3){
         textOverlay.innerHTML = "A blog providing a comprehensive <br> list of impactful charities,<br> detailing their areas of focus<br> and notable achievements.";
     }
+    else if (index===4){
+        textOverlay.innerHTML = "A mini gallery containing pictures <br> caused by water pollution.";
+    }
+    else if (index===5){
+        textOverlay.innerHTML = "";
+    }
+    else if (index===6){
+        textOverlay.innerHTML = "";
+    }
+    else if (index===7){
+        textOverlay.innerHTML = "";
+    }
+    else if (index===8){
+        textOverlay.innerHTML = "";
+    }
+    
 }
     
 //Set up the mechanics of arrows 
@@ -221,7 +304,7 @@ leftArrow.addEventListener('click', function() {
         window.location.href = images[currentImageIndex].link;
     });
 
-    // Function of the font change
+    // Function to swap the colour scheme
     function changeColorScheme(theme) {
         const body = document.querySelector('body');
         const h1 = document.querySelector('h1');
@@ -283,12 +366,21 @@ leftArrow.addEventListener('click', function() {
             });
         }
     }
+
+// Function to change font size
+function changeFontSize(fontSize) {
+    document.body.style.fontSize = fontSize + 'px';
+    const h1 = document.querySelector('h1');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    h1.style.fontSize = fontSize + 'px';
+    navLinks.forEach(link => {
+        link.style.fontSize = fontSize + 'px';
+    });
+}
 </script>
 </body>
 </html>
-
-
-
 
 
     
